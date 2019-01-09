@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="d3/d3.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+	</head>
+	<body>
+			<h1 align="center">Character Weights in Super Smash Bros. Ultimate</h1>
+			<h2 align="center">Created using D3.JS</h1>
+		<!--
+		<script type="text/javascript">
+			d3.csv("tabletest.csv", function(data){
+				return{
+					name: data.Name,
+					weight: +data.Weight,
+					url: data.IMG
+				};
+			},
+			function(rows){
+				console.log(rows);
+			});
+		</script>
+		<script type="text/javascript">
+
+			var space = [30,70,110];
+			
+			var svgContainer = d3.select("body")
+								.append("svg")
+								.attr("width", 200)
+								.attr("height", 200);
+			var circles = svgContainer.selectAll("circle")
+									.data(space)
+									.enter()
+									.append("circle");
+			var circleAtt = circles
+							.attr("cx",function(d){return d;})
+							.attr("cy",function(d){return d;})
+							.attr("r",20)
+		</script> -->
+		<script type="text/javascript">
+			//function palette()
+			
+			 d3.csv("tabletest.csv",function(d){
+						return{
+							name: d.Name,
+							weight: +d.Weight,
+							url: d.IMG
+						};
+					}).then(function(d){
+						
+						var test = d;
+						
+
+						d3.select("body")
+							.selectAll("p")
+							.data(d)
+							.enter()
+							.append("p")
+							.text(function(d){
+								return d.name+" "+d.weight;
+							})
+							;
+					});
+					
+					
+			
+			
+		</script>
+
+	</body>
+</html>
